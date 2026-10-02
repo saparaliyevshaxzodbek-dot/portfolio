@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" font-family="Segoe UI, Arial, sans-serif">
+  <defs>
+    <radialGradient id="glow" cx="85%" cy="10%" r="70%"><stop offset="0" stop-color="#d946ef" stop-opacity=".38"/><stop offset="1" stop-color="#d946ef" stop-opacity="0"/></radialGradient>
+    <radialGradient id="glow2" cx="10%" cy="95%" r="60%"><stop offset="0" stop-color="#38bdf8" stop-opacity=".32"/><stop offset="1" stop-color="#38bdf8" stop-opacity="0"/></radialGradient>
+    <linearGradient id="accent" x1="0" x2="1"><stop offset="0" stop-color="#38bdf8"/><stop offset="1" stop-color="#d946ef"/></linearGradient>
+    <pattern id="grid" width="56" height="56" patternUnits="userSpaceOnUse"><path d="M56 0H0V56" fill="none" stroke="#ffffff" stroke-opacity=".05"/></pattern>
+  </defs>
+  <rect width="1600" height="1000" fill="#0a0b14"/>
+  <rect width="1600" height="1000" fill="url(#grid)"/>
+  <rect width="1600" height="1000" fill="url(#glow)"/>
+  <rect width="1600" height="1000" fill="url(#glow2)"/>
+
+  <text x="120" y="190" fill="#7dd3fc" font-size="30" font-weight="700" letter-spacing="6">MVC + WEB API + IDENTITY</text>
+  <text x="120" y="290" fill="#ffffff" font-size="96" font-weight="800">To-Do List</text>
+  <text x="120" y="350" fill="#94a3b8" font-size="34">Three-tier web application</text>
+
+  <!-- Task board -->
+  <g transform="translate(120 430)">
+    <rect width="860" height="470" rx="28" fill="#13141f" stroke="#ffffff" stroke-opacity=".1"/>
+    <text x="40" y="64" fill="#ffffff" font-size="28" font-weight="700">Sprint tasks</text>
+    <rect x="620" y="34" width="200" height="44" rx="22" fill="url(#accent)"/><text x="720" y="63" text-anchor="middle" fill="#0a0b14" font-size="19" font-weight="700">+ New task</text>
+    <g font-size="22">
+      <g transform="translate(40 110)">
+        <rect width="780" height="72" rx="16" fill="#ffffff" fill-opacity=".04"/>
+        <rect x="22" y="22" width="28" height="28" rx="8" fill="url(#accent)"/><path d="M29 36l6 6 10-12" stroke="#0a0b14" stroke-width="4" fill="none"/>
+        <text x="72" y="44" fill="#64748b" text-decoration="line-through">Set up ASP.NET Core Identity</text>
+        <rect x="610" y="20" width="148" height="32" rx="16" fill="#10b981" fill-opacity=".18"/><text x="684" y="42" text-anchor="middle" fill="#6ee7b7" font-size="17">Completed</text>
+      </g>
+      <g transform="translate(40 196)">
+        <rect width="780" height="72" rx="16" fill="#ffffff" fill-opacity=".04"/>
+        <rect x="22" y="22" width="28" height="28" rx="8" fill="none" stroke="#475569" stroke-width="3"/>
+        <text x="72" y="44" fill="#e2e8f0">Secure API with token handler</text>
+        <rect x="610" y="20" width="148" height="32" rx="16" fill="#38bdf8" fill-opacity=".18"/><text x="684" y="42" text-anchor="middle" fill="#7dd3fc" font-size="17">In progress</text>
+      </g>
+      <g transform="translate(40 282)">
+        <rect width="780" height="72" rx="16" fill="#ffffff" fill-opacity=".04"/>
+        <rect x="22" y="22" width="28" height="28" rx="8" fill="none" stroke="#475569" stroke-width="3"/>
+        <text x="72" y="44" fill="#e2e8f0">Search tasks by title and tag</text>
+        <rect x="610" y="20" width="148" height="32" rx="16" fill="#d946ef" fill-opacity=".18"/><text x="684" y="42" text-anchor="middle" fill="#f0abfc" font-size="17">Not started</text>
+      </g>
+      <g transform="translate(40 368)" font-size="17">
+        <rect width="86" height="30" rx="15" fill="#ffffff" fill-opacity=".07"/><text x="43" y="21" text-anchor="middle" fill="#cbd5e1">#backend</text>
+        <rect x="98" width="76" height="30" rx="15" fill="#ffffff" fill-opacity=".07"/><text x="136" y="21" text-anchor="middle" fill="#cbd5e1">#auth</text>
+        <rect x="186" width="96" height="30" rx="15" fill="#ffffff" fill-opacity=".07"/><text x="234" y="21" text-anchor="middle" fill="#cbd5e1">#due-today</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- Architecture -->
+  <g transform="translate(1040 430)" font-size="22" font-weight="700">
+    <rect width="440" height="130" rx="24" fill="#ffffff" fill-opacity=".04" stroke="url(#accent)" stroke-width="2"/>
+    <text x="32" y="58" fill="#ffffff">WebApp (MVC)</text><text x="32" y="94" fill="#94a3b8" font-size="18" font-weight="400">Identity · UsersDb</text>
+    <path d="M220 140v60" stroke="#7dd3fc" stroke-width="3" stroke-dasharray="6 6"/>
+    <text x="236" y="178" fill="#7dd3fc" font-size="16" font-weight="400" font-family="Consolas, monospace">HTTP + token</text>
+    <rect y="210" width="440" height="130" rx="24" fill="#ffffff" fill-opacity=".04" stroke="url(#accent)" stroke-width="2"/>
+    <text x="32" y="268" fill="#ffffff">WebApi (REST)</text><text x="32" y="304" fill="#94a3b8" font-size="18" font-weight="400">EF Core · TodoListDb</text>
+    <rect y="370" width="440" height="100" rx="24" fill="#d946ef" fill-opacity=".1"/>
+    <text x="32" y="428" fill="#f0abfc" font-size="19" font-weight="400">Per-user data isolation</text>
+  </g>
+</svg>

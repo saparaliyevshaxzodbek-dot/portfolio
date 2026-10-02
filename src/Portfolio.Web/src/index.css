@@ -1,0 +1,206 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, "Segoe UI", sans-serif;
+  --font-display: "Space Grotesk Variable", "Inter Variable", ui-sans-serif, sans-serif;
+  --font-mono: "JetBrains Mono Variable", ui-monospace, "Cascadia Code", monospace;
+
+  --color-ink-950: #07070c;
+  --color-ink-900: #0b0b14;
+  --color-ink-850: #10101c;
+  --color-ink-800: #161626;
+
+  --color-accent-300: #c4b5fd;
+  --color-accent-400: #a78bfa;
+  --color-accent-500: #8b5cf6;
+  --color-accent-600: #7c3aed;
+
+  --animate-marquee: marquee 40s linear infinite;
+  --animate-float: float 6s ease-in-out infinite;
+  --animate-spin-slow: spin 14s linear infinite;
+}
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+    color-scheme: dark;
+  }
+
+  body {
+    @apply bg-ink-950 text-zinc-300 antialiased;
+  }
+
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-accent-400;
+  }
+
+  ::selection {
+    @apply bg-accent-500/40 text-white;
+  }
+}
+
+/* Violet → fuchsia → cyan, the site's signature. */
+@utility text-gradient {
+  @apply bg-gradient-to-r from-accent-400 via-fuchsia-400 to-cyan-300 bg-clip-text text-transparent;
+}
+
+@utility bg-gradient-brand {
+  @apply bg-gradient-to-r from-accent-500 via-fuchsia-500 to-cyan-400;
+}
+
+@utility glass {
+  @apply bg-white/[0.03] ring-1 ring-white/10 backdrop-blur-xl;
+}
+
+@utility btn {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition duration-300
+    active:scale-[0.98] disabled:pointer-events-none disabled:opacity-50;
+}
+
+@utility btn-primary {
+  @apply btn bg-white text-ink-950 shadow-[0_0_40px_-8px_rgba(167,139,250,0.7)] hover:shadow-[0_0_60px_-6px_rgba(217,70,239,0.8)];
+}
+
+@utility btn-ghost {
+  @apply btn bg-white/5 text-white ring-1 ring-white/15 hover:bg-white/10 hover:ring-white/30;
+}
+
+@utility btn-accent {
+  @apply btn bg-accent-600 text-white hover:bg-accent-500;
+}
+
+@utility btn-danger {
+  @apply btn bg-red-500/10 text-red-300 ring-1 ring-red-500/30 hover:bg-red-500/20;
+}
+
+@utility input {
+  @apply w-full rounded-xl border border-white/10 bg-white/[0.04] px-4 py-3 text-sm text-white outline-none transition
+    placeholder:text-zinc-500 focus:border-accent-400/60 focus:bg-white/[0.06] focus:ring-4 focus:ring-accent-500/15;
+}
+
+@utility label {
+  @apply mb-1.5 block text-xs font-semibold uppercase tracking-wider text-zinc-400;
+}
+
+@utility card {
+  @apply rounded-3xl bg-ink-900/80 ring-1 ring-white/10;
+}
+
+@utility no-scrollbar {
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Faint grid that fades out towards the edges. */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, rgb(255 255 255 / 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 56px 56px;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 30%, black 30%, transparent 75%);
+}
+
+/* Cards light up under the cursor; --mx/--my are set from JS. */
+@utility spotlight {
+  position: relative;
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s;
+    background: radial-gradient(420px circle at var(--mx, 50%) var(--my, 50%), rgb(167 139 250 / 0.14), transparent 45%);
+  }
+
+  &:hover::before {
+    opacity: 1;
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes caret {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.reveal {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: reveal 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--delay, 0ms);
+}
+
+.caret {
+  animation: caret 1s steps(1) infinite;
+}
+
+.animate-pop-in {
+  animation: pop-in 0.25s ease-out both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .reveal {
+    opacity: 1;
+  }
+}

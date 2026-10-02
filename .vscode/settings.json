@@ -1,0 +1,15 @@
+{
+  "dotnet.defaultSolution": "Portfolio.sln",
+  "files.exclude": {
+    "**/bin": true,
+    "**/obj": true
+  },
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/Migrations": true
+  },
+  "files.associations": {
+    "*.css": "tailwindcss"
+  }
+}
