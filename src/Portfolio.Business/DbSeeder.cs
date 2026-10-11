@@ -66,10 +66,10 @@ public static class DbSeeder
             "I build web applications end to end — from clean C# back ends on ASP.NET Core and EF Core to fast, polished React + TypeScript interfaces.",
             "Veb-ilovalarni boshidan oxirigacha yarataman — ASP.NET Core va EF Core'dagi toza C# backend'dan tortib React + TypeScript'dagi tezkor va chiroyli interfeyslargacha."),
         About = Of(
-            "I'm a .NET developer from Tashkent who enjoys turning real business needs into working software. I study at TUIT and PDP Academy and this year joined EPAM Systems as a .NET intern, where I build ASP.NET Core MVC and Web API applications, cover them with unit tests and keep every task clean under automated build, test and code-quality checks.\n\n" +
+            "I'm a .NET developer from Tashkent who enjoys turning real business needs into working software. I study at TUIT and PDP Academy and this year completed the [Fundamentals] .NET program at EPAM Training Center, where I built ASP.NET Core MVC and Web API applications, covered them with unit tests and passed every task through automated build, test and code-quality checks.\n\n" +
             "Outside the program I build full-stack products. The latest one, Dasturxon, is a complete ordering and delivery system for a restaurant: a customer website, a live kitchen screen, a courier workflow and an analytics dashboard, all connected in real time with SignalR.\n\n" +
             "I care about clear architecture, readable code and interfaces that people genuinely enjoy using.",
-            "Men Toshkentlik .NET dasturchiman, real biznes ehtiyojlarini ishlaydigan dasturga aylantirishni yaxshi ko'raman. TATU va PDP Academy'da o'qiyman, shu yildan EPAM Systems'da .NET stajyorman: ASP.NET Core MVC va Web API'da ilovalar yarataman, ularni unit testlar bilan qoplayman va har bir topshiriqni avtomatik build, test va kod sifati tekshiruvlaridan toza o'tkazaman.\n\n" +
+            "Men Toshkentlik .NET dasturchiman, real biznes ehtiyojlarini ishlaydigan dasturga aylantirishni yaxshi ko'raman. TATU va PDP Academy'da o'qiyman, bu yil EPAM Training Center'da [Fundamentals] .NET dasturini tugatdim: ASP.NET Core MVC va Web API'da ilovalar yaratdim, ularni unit testlar bilan qopladim va har bir topshiriqni avtomatik build, test va kod sifati tekshiruvlaridan o'tkazdim.\n\n" +
             "Dasturdan tashqari to'liq (full-stack) mahsulotlar yarataman. Eng so'nggisi — Dasturxon: restoran uchun buyurtma va yetkazib berish tizimi. Unda mijozlar sayti, jonli oshxona ekrani, kuryerlar jarayoni va tahliliy panel bor — hammasi SignalR orqali real vaqtda bog'langan.\n\n" +
             "Men uchun aniq arxitektura, o'qilishi oson kod va odamlarga chindan yoqadigan interfeys muhim."),
         Location = Of("Tashkent, Uzbekistan", "Toshkent, O'zbekiston"),
@@ -96,7 +96,7 @@ public static class DbSeeder
         {
             Type = ExperienceType.Work,
             Title = Of("Full-stack Developer", "Full-stack dasturchi"),
-            Organization = "Freelance · Dasturxon",
+            Organization = "Personal project · Dasturxon",
             Description = Of(
                 "Designed and built a restaurant ordering and delivery platform: ASP.NET Core 10 API, React 19 + TypeScript front end, real-time order flow with SignalR and role-based access for admins, managers, cooks and couriers.",
                 "Restoran uchun buyurtma va yetkazib berish platformasini loyihalab yaratdim: ASP.NET Core 10 API, React 19 + TypeScript frontend, SignalR orqali real vaqtdagi buyurtmalar oqimi, admin, menejer, oshpaz va kuryerlar uchun rollar."),
@@ -105,13 +105,14 @@ public static class DbSeeder
         },
         new()
         {
-            Type = ExperienceType.Work,
-            Title = Of(".NET Developer Intern", ".NET dasturchi stajyor"),
-            Organization = "EPAM Systems",
+            Type = ExperienceType.Course,
+            Title = Of(".NET Trainee — [Fundamentals] .NET (completed)", ".NET o'quvchi — [Fundamentals] .NET (tugatilgan)"),
+            Organization = "EPAM Training Center",
             Description = Of(
-                "Internship in EPAM's .NET program: an ASP.NET Core MVC online store (SportsStore), a layered Web API with EF Core and AutoMapper (TradeMarket) and a three-tier capstone with ASP.NET Core Identity (To-Do List). Every task passes automated build, unit-test and code-quality review (StyleCop, SonarQube).",
-                "EPAM'ning .NET dasturida stajirovka: ASP.NET Core MVC'da onlayn do'kon (SportsStore), EF Core va AutoMapper bilan qatlamli Web API (TradeMarket) va ASP.NET Core Identity bilan uch qatlamli bitiruv loyihasi (To-Do List). Har bir topshiriq avtomatik build, unit test va kod sifati tekshiruvidan (StyleCop, SonarQube) o'tadi."),
+                "Completed EPAM's [Fundamentals] .NET training program: an ASP.NET Core MVC online store (SportsStore), a layered Web API with EF Core and AutoMapper (TradeMarket) and a three-tier capstone with ASP.NET Core Identity (To-Do List). Every task passed automated build, unit-test and code-quality review (StyleCop, SonarQube).",
+                "EPAM'ning [Fundamentals] .NET o'quv dasturi tugatildi: ASP.NET Core MVC'da onlayn do'kon (SportsStore), EF Core va AutoMapper bilan qatlamli Web API (TradeMarket) va ASP.NET Core Identity bilan uch qatlamli bitiruv loyihasi (To-Do List). Har bir topshiriq avtomatik build, unit test va kod sifati tekshiruvidan (StyleCop, SonarQube) o'tgan."),
             StartDate = new DateOnly(2026, 6, 1),
+            EndDate = new DateOnly(2026, 10, 1),
             Url = "https://www.epam.com",
             SortOrder = 20,
         },
