@@ -487,3 +487,6 @@ src/Portfolio.WebApi/wwwroot/uploads/*
 !src/Portfolio.WebApi/wwwroot/uploads/.gitkeep
 src/Portfolio.Web/dist/
 publish/
+
+# TypeScript incremental build info
+*.tsbuildinfo

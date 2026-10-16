@@ -85,13 +85,24 @@ public static class DbSeeder
             (SkillCategory.Backend, ["C#", ".NET", "ASP.NET Core", "Web API", "MVC / Razor", "Entity Framework Core", "ADO.NET", "LINQ", "Async / TPL", "SignalR", "JWT / Identity", "REST", "OOP & SOLID", "Design Patterns", "Dependency Injection", "Clean Architecture"]),
             (SkillCategory.Frontend, ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS", "Vite"]),
             (SkillCategory.Database, ["SQL Server", "SQLite", "SQL", "EF Core Migrations"]),
-            (SkillCategory.Tools, ["Git", "Visual Studio", "VS Code", "xUnit / NUnit", "Moq", "AutoMapper", "Swagger / Postman", "StyleCop / SonarQube"]),
+            (SkillCategory.Tools, ["Git", "Visual Studio", "VS Code", "xUnit / NUnit", "Moq", "AutoMapper", "Swagger / Postman", "StyleCop / SonarQube", "Windows / Active Directory", "Networking: TCP/IP, DNS, DHCP"]),
         ];
         return groups.SelectMany(g => g.Names.Select((name, i) => new Skill { Name = name, Category = g.Category, SortOrder = (i + 1) * 10 }));
     }
 
     private static IEnumerable<Experience> Timeline() =>
     [
+        new()
+        {
+            Type = ExperienceType.Work,
+            Title = Of("IT Specialist", "IT mutaxassisi"),
+            Organization = "Nura Electric (Nura Group)",
+            Description = Of(
+                "Support users and the IT infrastructure of the head office and the new plant: workstations, printers and the network. Install and configure Windows and user accounts, troubleshoot IP, DNS and DHCP issues, and help set up the company domain with Active Directory and Group Policy. Built IT Desk, a helpdesk, inventory and IP management prototype for the IT department on ASP.NET Core.",
+                "Bosh ofis va yangi zavodning foydalanuvchilari hamda IT infratuzilmasini qo'llab-quvvatlayman: kompyuterlar, printerlar va tarmoq. Windows va foydalanuvchi akkauntlarini o'rnataman va sozlayman, IP, DNS va DHCP muammolarini hal qilaman, Active Directory va Group Policy bilan kompaniya domenini sozlashda qatnashaman. IT bo'limi uchun ASP.NET Core'da IT Desk — arizalar, texnika va IP manzillarni hisobga olish tizimi prototipini yaratdim."),
+            StartDate = new DateOnly(2026, 10, 1),
+            SortOrder = 5,
+        },
         new()
         {
             Type = ExperienceType.Work,
