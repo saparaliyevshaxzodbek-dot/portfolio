@@ -61,21 +61,23 @@ public static class DbSeeder
     private static Profile Profile() => new()
     {
         FullName = "Shaxzodbek Saparaliyev",
-        Headline = Of(".NET Developer · ASP.NET Core & React", ".NET dasturchi · ASP.NET Core va React"),
+        Headline = Of("IT Specialist at Nura Electric · .NET Developer", "Nura Electric'da IT mutaxassisi · .NET dasturchi"),
         Summary = Of(
-            "I build web applications end to end — from clean C# back ends on ASP.NET Core and EF Core to fast, polished React + TypeScript interfaces.",
-            "Veb-ilovalarni boshidan oxirigacha yarataman — ASP.NET Core va EF Core'dagi toza C# backend'dan tortib React + TypeScript'dagi tezkor va chiroyli interfeyslargacha."),
+            "I keep the IT of a growing manufacturer running at Nura Electric and build web applications with C#, ASP.NET Core and EF Core — from clean back ends to polished React interfaces.",
+            "Nura Electric'da kompaniyaning IT tizimini qo'llab-quvvatlayman va C#, ASP.NET Core hamda EF Core'da veb-ilovalar yarataman — toza backend'dan chiroyli React interfeyslargacha."),
         About = Of(
-            "I'm a .NET developer from Tashkent who enjoys turning real business needs into working software. I study at TUIT and PDP Academy and this year completed the [Fundamentals] .NET program at EPAM Training Center, where I built ASP.NET Core MVC and Web API applications, covered them with unit tests and passed every task through automated build, test and code-quality checks.\n\n" +
-            "Outside the program I build full-stack products. The latest one, Dasturxon, is a complete ordering and delivery system for a restaurant: a customer website, a live kitchen screen, a courier workflow and an analytics dashboard, all connected in real time with SignalR.\n\n" +
-            "I care about clear architecture, readable code and interfaces that people genuinely enjoy using.",
-            "Men Toshkentlik .NET dasturchiman, real biznes ehtiyojlarini ishlaydigan dasturga aylantirishni yaxshi ko'raman. TATU va PDP Academy'da o'qiyman, bu yil EPAM Training Center'da [Fundamentals] .NET dasturini tugatdim: ASP.NET Core MVC va Web API'da ilovalar yaratdim, ularni unit testlar bilan qopladim va har bir topshiriqni avtomatik build, test va kod sifati tekshiruvlaridan o'tkazdim.\n\n" +
-            "Dasturdan tashqari to'liq (full-stack) mahsulotlar yarataman. Eng so'nggisi — Dasturxon: restoran uchun buyurtma va yetkazib berish tizimi. Unda mijozlar sayti, jonli oshxona ekrani, kuryerlar jarayoni va tahliliy panel bor — hammasi SignalR orqali real vaqtda bog'langan.\n\n" +
-            "Men uchun aniq arxitektura, o'qilishi oson kod va odamlarga chindan yoqadigan interfeys muhim."),
+            "I'm an IT specialist and .NET developer from Tashkent who enjoys turning real business needs into working software.\n\n" +
+            "Since October 2026 I work in the IT department of Nura Electric (Nura Group), supporting users and the infrastructure of the head office and the new plant: workstations, printers, the network and the company domain. For the department I built IT Desk, a helpdesk, inventory and IP management prototype on ASP.NET Core.\n\n" +
+            "This year I also completed the [Fundamentals] .NET program at EPAM Training Center, where I built ASP.NET Core MVC and Web API applications, covered them with unit tests and passed every task through automated build, test and code-quality checks. I study at TUIT and PDP Academy, and in my own time I build full-stack products such as Dasturxon, a real-time ordering and delivery system for a restaurant.\n\n" +
+            "I care about clear architecture, readable code and systems that people can rely on.",
+            "Men Toshkentlik IT mutaxassisi va .NET dasturchiman, real biznes ehtiyojlarini ishlaydigan dasturga aylantirishni yaxshi ko'raman.\n\n" +
+            "2026-yil oktyabridan Nura Electric (Nura Group) IT bo'limida ishlayman: bosh ofis va yangi zavodning foydalanuvchilari hamda infratuzilmasini qo'llab-quvvatlayman — kompyuterlar, printerlar, tarmoq va kompaniya domeni. Bo'lim uchun ASP.NET Core'da IT Desk — arizalar, texnika va IP manzillarni hisobga olish tizimi prototipini yaratdim.\n\n" +
+            "Bu yil EPAM Training Center'da [Fundamentals] .NET dasturini ham tugatdim: ASP.NET Core MVC va Web API'da ilovalar yaratdim, ularni unit testlar bilan qopladim va har bir topshiriqni avtomatik build, test va kod sifati tekshiruvlaridan o'tkazdim. TATU va PDP Academy'da o'qiyman, bo'sh vaqtimda esa to'liq (full-stack) mahsulotlar yarataman — masalan, restoran uchun real vaqtda ishlaydigan buyurtma va yetkazib berish tizimi Dasturxon.\n\n" +
+            "Men uchun aniq arxitektura, o'qilishi oson kod va odamlar ishonib foydalanadigan tizimlar muhim."),
         Location = Of("Tashkent, Uzbekistan", "Toshkent, O'zbekiston"),
         Email = "saparaliyevshaxzodbek@gmail.com",
         GitHub = "https://github.com/saparaliyevshaxzodbek-dot",
-        OpenToWork = true,
+        OpenToWork = false,
     };
 
     private static IEnumerable<Skill> Skills()
