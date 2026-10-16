@@ -264,7 +264,7 @@ function CodeCard({ className }: { className: string }) {
         {',\n  '}
         <span className="text-accent-300">bool</span> LovesCleanCode = <span className="text-fuchsia-400">true</span>
         {',\n  '}
-        <span className="text-accent-300">bool</span> OpenToWork = <span className="text-fuchsia-400">true</span>
+        <span className="text-accent-300">bool</span> KeepsLearning = <span className="text-fuchsia-400">true</span>
         {');'}
       </pre>
     </div>
