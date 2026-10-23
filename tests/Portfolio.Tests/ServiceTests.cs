@@ -62,7 +62,7 @@ public class ServiceTests : IDisposable
 
         Assert.Equal("Edited Name", (await db.Profiles.SingleAsync()).FullName);
         Assert.Equal(1, await db.AdminUsers.CountAsync());
-        Assert.Equal(4, await db.Projects.CountAsync());
+        Assert.Equal(5, await db.Projects.CountAsync());
     }
 
     [Fact]
@@ -84,7 +84,7 @@ public class ServiceTests : IDisposable
 
         var site = await new SiteService(db, TimeProvider.System).GetAsync();
 
-        Assert.Equal("dasturxon", site.Projects[0].Slug);
+        Assert.Equal("it-yordam", site.Projects[0].Slug);
         Assert.DoesNotContain(site.Projects, p => p.Slug == "sportsstore");
         Assert.Null(site.Experiences[0].EndDate);
         Assert.Contains("ASP.NET Core 10", site.Projects[0].Tech);

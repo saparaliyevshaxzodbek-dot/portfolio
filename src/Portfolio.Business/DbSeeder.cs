@@ -67,11 +67,11 @@ public static class DbSeeder
             "Nura Electric'da kompaniyaning IT tizimini qo'llab-quvvatlayman va C#, ASP.NET Core hamda EF Core'da veb-ilovalar yarataman — toza backend'dan chiroyli React interfeyslargacha."),
         About = Of(
             "I'm an IT specialist and .NET developer from Tashkent who enjoys turning real business needs into working software.\n\n" +
-            "Since October 2026 I work in the IT department of Nura Electric (Nura Group), supporting users and the infrastructure of the head office and the new plant: workstations, printers, the network and the company domain. For the department I built IT Desk, a helpdesk, inventory and IP management prototype on ASP.NET Core.\n\n" +
+            "Since October 2026 I work in the IT department of Nura Electric (Nura Group), supporting users and the infrastructure of the head office and the new plant: workstations, printers, the network and the company domain. For the department I built IT Yordam: employees report problems to a Telegram bot in one message and IT works them on a live dashboard with wait-time estimates, SLA timers and remote help.\n\n" +
             "This year I also completed the [Fundamentals] .NET program at EPAM Training Center, where I built ASP.NET Core MVC and Web API applications, covered them with unit tests and passed every task through automated build, test and code-quality checks. I study at TUIT and PDP Academy, and in my own time I build full-stack products such as Dasturxon, a real-time ordering and delivery system for a restaurant.\n\n" +
             "I care about clear architecture, readable code and systems that people can rely on.",
             "Men Toshkentlik IT mutaxassisi va .NET dasturchiman, real biznes ehtiyojlarini ishlaydigan dasturga aylantirishni yaxshi ko'raman.\n\n" +
-            "2026-yil oktyabridan Nura Electric (Nura Group) IT bo'limida ishlayman: bosh ofis va yangi zavodning foydalanuvchilari hamda infratuzilmasini qo'llab-quvvatlayman — kompyuterlar, printerlar, tarmoq va kompaniya domeni. Bo'lim uchun ASP.NET Core'da IT Desk — arizalar, texnika va IP manzillarni hisobga olish tizimi prototipini yaratdim.\n\n" +
+            "2026-yil oktyabridan Nura Electric (Nura Group) IT bo'limida ishlayman: bosh ofis va yangi zavodning foydalanuvchilari hamda infratuzilmasini qo'llab-quvvatlayman — kompyuterlar, printerlar, tarmoq va kompaniya domeni. Bo'lim uchun IT Yordam tizimini yaratdim: xodimlar muammosini Telegram botga bitta xabar bilan yozadi, IT esa ularni kutish vaqti, SLA taymerlari va masofadan yordam bilan jonli dashboard'da hal qiladi.\n\n" +
             "Bu yil EPAM Training Center'da [Fundamentals] .NET dasturini ham tugatdim: ASP.NET Core MVC va Web API'da ilovalar yaratdim, ularni unit testlar bilan qopladim va har bir topshiriqni avtomatik build, test va kod sifati tekshiruvlaridan o'tkazdim. TATU va PDP Academy'da o'qiyman, bo'sh vaqtimda esa to'liq (full-stack) mahsulotlar yarataman — masalan, restoran uchun real vaqtda ishlaydigan buyurtma va yetkazib berish tizimi Dasturxon.\n\n" +
             "Men uchun aniq arxitektura, o'qilishi oson kod va odamlar ishonib foydalanadigan tizimlar muhim."),
         Location = Of("Tashkent, Uzbekistan", "Toshkent, O'zbekiston"),
@@ -100,8 +100,8 @@ public static class DbSeeder
             Title = Of("IT Specialist", "IT mutaxassisi"),
             Organization = "Nura Electric (Nura Group)",
             Description = Of(
-                "Support users and the IT infrastructure of the head office and the new plant: workstations, printers and the network. Install and configure Windows and user accounts, troubleshoot IP, DNS and DHCP issues, and help set up the company domain with Active Directory and Group Policy. Built IT Desk, a helpdesk, inventory and IP management prototype for the IT department on ASP.NET Core.",
-                "Bosh ofis va yangi zavodning foydalanuvchilari hamda IT infratuzilmasini qo'llab-quvvatlayman: kompyuterlar, printerlar va tarmoq. Windows va foydalanuvchi akkauntlarini o'rnataman va sozlayman, IP, DNS va DHCP muammolarini hal qilaman, Active Directory va Group Policy bilan kompaniya domenini sozlashda qatnashaman. IT bo'limi uchun ASP.NET Core'da IT Desk — arizalar, texnika va IP manzillarni hisobga olish tizimi prototipini yaratdim."),
+                "Support users and the IT infrastructure of the head office and the new plant: workstations, printers and the network. Install and configure Windows and user accounts, troubleshoot IP, DNS and DHCP issues, and help set up the company domain with Active Directory and Group Policy. Built IT Yordam, the department's request system: a Telegram bot for employees and a live dashboard for IT with SLA timers and remote help.",
+                "Bosh ofis va yangi zavodning foydalanuvchilari hamda IT infratuzilmasini qo'llab-quvvatlayman: kompyuterlar, printerlar va tarmoq. Windows va foydalanuvchi akkauntlarini o'rnataman va sozlayman, IP, DNS va DHCP muammolarini hal qilaman, Active Directory va Group Policy bilan kompaniya domenini sozlashda qatnashaman. Bo'lim uchun IT Yordam arizalar tizimini yaratdim: xodimlar uchun Telegram bot va IT uchun SLA taymerlari hamda masofadan yordamli jonli dashboard."),
             StartDate = new DateOnly(2026, 10, 1),
             SortOrder = 5,
         },
@@ -264,6 +264,44 @@ public static class DbSeeder
             CoverImageUrl = "/images/projects/todo-list/cover.svg",
         };
 
-        return [dasturxon, sportsStore, tradeMarket, todoList];
+        var itYordam = new Project
+        {
+            Slug = "it-yordam",
+            Year = 2026,
+            IsFeatured = true,
+            SortOrder = 5,
+            Title = Of("IT Yordam — IT Service Desk & Telegram Bot", "IT Yordam — IT arizalar tizimi va Telegram bot"),
+            Summary = Of(
+                "The IT department's request system at Nura Electric: employees write their problem to a Telegram bot, IT works it on a live dashboard — with wait-time estimates, SLA timers and remote help.",
+                "Nura Electric IT bo'limining arizalar tizimi: xodim muammosini Telegram botga yozadi, IT uni jonli dashboard'da hal qiladi — kutish vaqti, SLA taymerlari va masofadan yordam bilan."),
+            Description = Of(
+                "Before IT Yordam, people phoned the IT office or stopped someone in the corridor, waited without knowing when help would come, and requests got lost. Now an employee simply writes the problem — or sends a screenshot — to the company's Telegram bot from a phone or PC. There is no form: the bot recognises them from their Telegram profile, guesses the type of problem from the words and immediately replies with their place in the queue and an estimated wait.\n\nIT staff work on a real-time dashboard: a queue board with SLA timers and sound alerts, one-click \"I'll be there in 15 minutes\", messages to the employee, history, statistics and written feedback. When a problem can be fixed from the desk, IT starts remote help: the bot asks the employee's permission, sends a picture guide for Windows Quick Assist or connects through the company's own RustDesk server, and the session is timed until it is resolved. The bot and the dashboard speak Uzbek, Russian and English.\n\nIt is a layered ASP.NET Core 10 solution (Data · Business · Web API) with EF Core, SignalR and cookie authentication, plus a React 19 + TypeScript dashboard. The Telegram Bot API is used directly over HttpClient with long polling, so no public IP is needed; background services handle reminders, escalation and auto-closing. A built-in Telegram simulator demonstrates the whole flow without a bot token, and 48 xUnit tests cover the queue maths, bot conversations, timers and remote help.",
+                "IT Yordam'dan oldin xodimlar IT xonasiga qo'ng'iroq qilardi yoki yo'lakda kimnidir to'xtatardi, yordam qachon kelishini bilmay kutardi, arizalar esa unutilib ketardi. Endi xodim muammosini — yoki ekran rasmini — telefonidan yoki kompyuteridan kompaniyaning Telegram botiga yozadi, xolos. Hech qanday anketa yo'q: bot uni Telegram profilidan taniydi, muammo turini so'zlardan aniqlaydi va darhol navbatdagi o'rnini hamda taxminiy kutish vaqtini aytadi.\n\nIT xodimlari real vaqtdagi dashboard'da ishlaydi: SLA taymerlari va ovozli signalli navbat doskasi, bir bosishda \"15 daqiqada boraman\", xodimga xabar, tarix, statistika va yozma fikrlar. Muammoni joyidan turib hal qilish mumkin bo'lsa, IT masofadan yordamni boshlaydi: bot xodimdan ruxsat so'raydi, Windows Quick Assist uchun rasmli yo'riqnoma yuboradi yoki kompaniyaning o'z RustDesk serveri orqali ulanadi, sessiya esa hal bo'lguncha vaqt bilan kuzatiladi. Bot va dashboard o'zbek, rus va ingliz tillarida ishlaydi.\n\nBu — qatlamli ASP.NET Core 10 yechimi (Data · Business · Web API): EF Core, SignalR va cookie autentifikatsiya, hamda React 19 + TypeScript dashboard. Telegram Bot API to'g'ridan-to'g'ri HttpClient va long polling orqali ishlatiladi, shuning uchun tashqi IP kerak emas; eslatmalar, eskalatsiya va avto-yopishni fon xizmatlari bajaradi. Ichki Telegram simulyatori butun jarayonni bot tokenisiz ko'rsatadi, 48 ta xUnit test esa navbat hisobi, bot suhbatlari, taymerlar va masofadan yordamni qamrab oladi."),
+            Highlights = Of(
+                "Employees file requests in one Telegram message — no forms or registration questions\nQueue simulation estimates each caller's wait from staff availability and average handle time\nSLA escalation, late-arrival reminders and auto-close run as background services\nConsent-based remote help: Quick Assist picture guide or a self-hosted RustDesk server\nLive dashboard with SignalR, sound alerts, delivery-failure warnings and written feedback\nTrilingual bot and UI: Uzbek, Russian, English\n48 xUnit tests and a built-in Telegram simulator for demos",
+                "Xodim arizani bitta Telegram xabari bilan qoldiradi — anketa va ro'yxatdan o'tish savollarisiz\nNavbat simulyatsiyasi IT xodimlarining bandligi va o'rtacha ish vaqtidan kutish vaqtini hisoblaydi\nSLA eskalatsiyasi, kechikish eslatmalari va avto-yopish fon xizmatlarida ishlaydi\nRuxsat bilan masofadan yordam: Quick Assist rasmli yo'riqnomasi yoki o'z RustDesk serveri\nSignalR'li jonli dashboard, ovozli signallar, xabar yetmaganda ogohlantirish va yozma fikrlar\nUch tilli bot va interfeys: o'zbek, rus, ingliz\n48 ta xUnit test va namoyish uchun ichki Telegram simulyatori"),
+            TechStack = "ASP.NET Core 10, EF Core, SQLite, SignalR, Telegram Bot API, React 19, TypeScript, Tailwind CSS, Vite, xUnit",
+            CoverImageUrl = "/images/projects/it-yordam/board.jpg",
+        };
+        (string File, string En, string Uz)[] itYordamShots =
+        [
+            ("board", "Live queue board: wait times, SLA status and the IT team at a glance", "Jonli navbat doskasi: kutish vaqti, SLA holati va IT jamoa bir qarashda"),
+            ("remote", "Remote help in progress: consent, session timer and one-click resolve", "Masofadan yordam: ruxsat, sessiya taymeri va bir bosishda hal qilish"),
+            ("bot", "What the employee gets in Telegram: a 3-step picture guide for Quick Assist", "Xodim Telegram'da oladigan narsa: Quick Assist uchun 3 qadamli rasmli yo'riqnoma"),
+            ("stats", "Statistics for management: response time, SLA, remote share, problem types", "Rahbariyat uchun statistika: javob vaqti, SLA, masofadan ulush, muammo turlari"),
+            ("settings", "Remote help settings: Quick Assist or the company's own RustDesk server", "Masofadan yordam sozlamalari: Quick Assist yoki kompaniyaning o'z RustDesk serveri"),
+            ("mobile", "Works on a phone too", "Telefonda ham ishlaydi"),
+        ];
+        for (var i = 0; i < itYordamShots.Length; i++)
+        {
+            itYordam.Images.Add(new ProjectImage
+            {
+                Url = $"/images/projects/it-yordam/{itYordamShots[i].File}.jpg",
+                Caption = Of(itYordamShots[i].En, itYordamShots[i].Uz),
+                SortOrder = (i + 1) * 10,
+            });
+        }
+
+        return [itYordam, dasturxon, sportsStore, tradeMarket, todoList];
     }
 }
