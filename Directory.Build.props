@@ -1,0 +1,9 @@
+<Project>
+  <!-- Smart App Control on this PC blocks freshly built unsigned .exe launchers, and it has also blocked one exact
+       build of Portfolio.Data.dll. Without an app host the projects run through the signed "dotnet" executable,
+       and non-deterministic builds give every build a new file hash instead of reproducing the blocked one. -->
+  <PropertyGroup>
+    <UseAppHost>false</UseAppHost>
+    <Deterministic>false</Deterministic>
+  </PropertyGroup>
+</Project>
