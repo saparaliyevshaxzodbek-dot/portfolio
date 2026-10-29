@@ -76,7 +76,10 @@ public static class DbSeeder
             "Men uchun aniq arxitektura, o'qilishi oson kod va odamlar ishonib foydalanadigan tizimlar muhim."),
         Location = Of("Tashkent, Uzbekistan", "Toshkent, O'zbekiston"),
         Email = "saparaliyevshaxzodbek@gmail.com",
+        Phone = "+998 97 885 15 05",
+        Telegram = "Shaxzod15_2005",
         GitHub = "https://github.com/saparaliyevshaxzodbek-dot",
+        LinkedIn = "https://www.linkedin.com/in/shaxzodbek-saparaliyev-794932401/",
         OpenToWork = false,
     };
 
@@ -84,10 +87,10 @@ public static class DbSeeder
     {
         (SkillCategory Category, string[] Names)[] groups =
         [
-            (SkillCategory.Backend, ["C#", ".NET", "ASP.NET Core", "Web API", "MVC / Razor", "Entity Framework Core", "ADO.NET", "LINQ", "Async / TPL", "SignalR", "JWT / Identity", "REST", "OOP & SOLID", "Design Patterns", "Dependency Injection", "Clean Architecture"]),
+            (SkillCategory.Backend, ["C#", ".NET", "ASP.NET Core", "Web API", "MVC / Razor", "Entity Framework Core", "ADO.NET", "LINQ", "Async / TPL", "SignalR", "JWT / Identity", "REST", "OOP & SOLID", "Design Patterns", "Dependency Injection", "Clean Architecture", "Telegram Bot API"]),
             (SkillCategory.Frontend, ["React", "TypeScript", "JavaScript", "Tailwind CSS", "HTML & CSS", "Vite"]),
             (SkillCategory.Database, ["SQL Server", "SQLite", "SQL", "EF Core Migrations"]),
-            (SkillCategory.Tools, ["Git", "Visual Studio", "VS Code", "xUnit / NUnit", "Moq", "AutoMapper", "Swagger / Postman", "StyleCop / SonarQube", "Windows / Active Directory", "Networking: TCP/IP, DNS, DHCP"]),
+            (SkillCategory.Tools, ["Git", "Visual Studio", "VS Code", "xUnit / NUnit", "Moq", "AutoMapper", "Swagger / Postman", "StyleCop / SonarQube", "Windows / Active Directory", "Networking: TCP/IP, DNS, DHCP", "Claude Code", "ChatGPT", "GitHub Copilot"]),
         ];
         return groups.SelectMany(g => g.Names.Select((name, i) => new Skill { Name = name, Category = g.Category, SortOrder = (i + 1) * 10 }));
     }

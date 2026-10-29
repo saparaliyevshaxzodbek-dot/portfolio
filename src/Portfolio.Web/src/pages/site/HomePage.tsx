@@ -26,6 +26,7 @@ import {
   IconDatabase,
   IconDownload,
   IconGitHub,
+  IconGlobe,
   IconLayout,
   IconLinkedIn,
   IconMail,
@@ -300,8 +301,9 @@ function About({ site }: { site: Site }) {
   const facts = [
     { icon: <IconPin size={18} />, label: t('location'), value: tx(p.location) },
     current && { icon: <IconBriefcase size={18} />, label: t('currently'), value: `${tx(current.title)} · ${current.organization}` },
+    { icon: <IconGlobe size={18} />, label: t('languages'), value: t('languagesValue') },
     { icon: <IconMail size={18} />, label: t('email'), value: p.email, href: `mailto:${p.email}` },
-    p.phone && { icon: <IconPhone size={18} />, label: 'Phone', value: p.phone, href: `tel:${p.phone.replace(/\s/g, '')}` },
+    p.phone && { icon: <IconPhone size={18} />, label: t('phone'), value: p.phone, href: `tel:${p.phone.replace(/\s/g, '')}` },
   ].filter((f): f is { icon: ReactElement; label: string; value: string; href?: string } => !!f);
 
   return (
@@ -311,14 +313,14 @@ function About({ site }: { site: Site }) {
         <Reveal className="space-y-5 text-lg leading-relaxed text-zinc-400">
           <Paragraphs text={tx(p.about)} />
         </Reveal>
-        <Reveal delay={120} className="space-y-3">
+        <Reveal delay={120} className="min-w-0 space-y-3">
           {facts.map((f) => {
             const body = (
               <>
                 <span className="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-accent-500/10 text-accent-300 ring-1 ring-accent-400/20">{f.icon}</span>
                 <span className="min-w-0">
                   <span className="block text-xs font-medium uppercase tracking-wider text-zinc-500">{f.label}</span>
-                  <span className="block truncate font-medium text-white">{f.value}</span>
+                  <span className="block break-words font-medium text-white">{f.value}</span>
                 </span>
               </>
             );
@@ -440,6 +442,12 @@ function Timeline({ items }: { items: Experience[] }) {
 
 /* ---------------------------------------------------------------- Projects */
 
+// The mock address bar shows the real site or repo; an invented domain could belong to someone else.
+export function frameAddress(p: Pick<ProjectCard, 'slug' | 'liveUrl' | 'repoUrl'>) {
+  const link = p.liveUrl ?? p.repoUrl;
+  return link ? link.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '') : `localhost/${p.slug}`;
+}
+
 export function BrowserFrame({ src, alt, url, className = '' }: { src: string | null; alt: string; url: string; className?: string }) {
   return (
     <div className={`overflow-hidden rounded-2xl bg-ink-850 shadow-2xl ring-1 ring-white/10 ${className}`}>
@@ -485,7 +493,7 @@ function Projects({ projects }: { projects: ProjectCard[] }) {
             </div>
             <div className="relative">
               <div className="absolute -inset-6 rounded-[2rem] bg-gradient-to-br from-accent-500/25 via-fuchsia-500/15 to-cyan-400/20 blur-2xl transition group-hover:opacity-100 lg:opacity-70" />
-              <BrowserFrame src={featured.coverImageUrl} alt={tx(featured.title)} url={`${featured.slug}.uz`} className="relative transition duration-500 group-hover:-translate-y-1 group-hover:rotate-[-0.5deg]" />
+              <BrowserFrame src={featured.coverImageUrl} alt={tx(featured.title)} url={frameAddress(featured)} className="relative transition duration-500 group-hover:-translate-y-1 group-hover:rotate-[-0.5deg]" />
             </div>
           </Link>
         </Reveal>
@@ -555,7 +563,7 @@ function Contact({ profile: p }: { profile: Profile }) {
   const channels = [
     { icon: <IconMail size={20} />, label: 'Email', value: p.email, href: `mailto:${p.email}` },
     p.telegram && { icon: <IconTelegram size={20} />, label: 'Telegram', value: p.telegram, href: telegramUrl(p.telegram) },
-    p.phone && { icon: <IconPhone size={20} />, label: 'Phone', value: p.phone, href: `tel:${p.phone.replace(/\s/g, '')}` },
+    p.phone && { icon: <IconPhone size={20} />, label: t('phone'), value: p.phone, href: `tel:${p.phone.replace(/\s/g, '')}` },
     { icon: <IconPin size={20} />, label: t('location'), value: tx(p.location) },
   ].filter((c): c is { icon: ReactElement; label: string; value: string; href?: string } => !!c);
 

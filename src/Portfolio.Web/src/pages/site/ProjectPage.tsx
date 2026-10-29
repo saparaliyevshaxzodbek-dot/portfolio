@@ -6,7 +6,7 @@ import type { ProjectImage } from '../../api/types';
 import { useLang } from '../../i18n';
 import { Paragraphs, Reveal, Spinner, TechChip, useLockBodyScroll } from '../../components/ui';
 import { IconArrowLeft, IconArrowUpRight, IconCheck, IconChevronLeft, IconChevronRight, IconClose, IconGitHub } from '../../components/icons';
-import { BrowserFrame } from './HomePage';
+import { BrowserFrame, frameAddress } from './HomePage';
 
 export default function ProjectPage() {
   const { slug = '' } = useParams();
@@ -66,7 +66,7 @@ export default function ProjectPage() {
 
         <Reveal delay={120} className="relative mt-14">
           <div className="absolute -inset-8 -z-10 rounded-[3rem] bg-gradient-to-br from-accent-500/20 via-fuchsia-500/10 to-cyan-400/15 blur-3xl" />
-          <BrowserFrame src={project.coverImageUrl} alt={tx(project.title)} url={`${project.slug}.uz`} />
+          <BrowserFrame src={project.coverImageUrl} alt={tx(project.title)} url={frameAddress(project)} />
         </Reveal>
 
         <div className="mt-20 grid gap-12 lg:grid-cols-[1.5fr_1fr]">
